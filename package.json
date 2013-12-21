@@ -1,0 +1,21 @@
+{
+  "name": "lean-mean web-stack",
+  "version": "0.0.1",
+  "private": false,
+  "author": "Dom Parise",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "jade": "latest",
+    "mongoose": "latest"
+  },  
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-nodemon": "latest"
+  }
+}
