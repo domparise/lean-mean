@@ -1,47 +1,46 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
-	mongoose.connect('mongodb://localhost/lean');
+	mongoose.connect('mongodb://localhost/leanDB');
 
-exports.getDB = function(){
-	return mongoose;
+exports.getDB = function(cb){
+	return cb(mongoose);
 };
 
-exports.newModel = function(name,obj){
+exports.newModel = function(name,obj,cb){
 	// hope to include methods, s.t. obj would be in form of {methods:[],schema:[]}
-
 	// obj should be of the form {key:type}
 	var theSchema = new Schema(obj);
-	return mongoose.model(name, theSchema);
-	// var x = db.newSchema(blah,blah);
+	return cb(mongoose.model(name, theSchema));
 };
 
-exports.getModel = function(name){
-	return mongoose.model(name);
+exports.getModel = function(name,cb){
+	return cb(mongoose.model(name));
 };
 
-// can be called without having a model, otherwise could just .find and shit with the model
-exports.loadModel = function(name,pred){
-	var model = mongoose.model(name);
-	model.find(pred,function(err,data){
-		if(err){console.log(err);return false;}
-		else return data;
+exports.insert = function(name,vals,cb){
+	(new (mongoose.model(name))(vals)).save(function(err){
+		if(err){console.log(err);return cb(false);}
+		else return cb(true);
 	});
 };
 
-exports.addModel = function(name,vals){
-	var model = mongoose.model(name);
-	model.save(function(err){
-		if(err){console.log(err);return false;}
-		else return true;
+exports.select = function(name,pred,cb){
+	mongoose.model(name).find(pred,function(err,data){
+		if(err){console.log(err);return cb(false);}
+		else return cb(data);
 	});
 };
 
-// want to add updating a model
+exports.update = function(name,pred,vals,cb){
+	mongoose.model(name).update(pred,vals,function(err){
+		if(err){console.log(err);return cb(false);}
+		else return cb(true);
+	});
+};
 
-exports.delModel = function(name,pred){
-	var model = mongoose.model(name);
-	model.remove(pred,function(err){
-		if(err){console.log(err);return false;}
-		else return true;
+exports.delete = function(name,pred,cb){
+	mongoose.model(name).remove(pred,function(err){
+		if(err){console.log(err);return cb(false);}
+		else return cb(true);
 	});
 };
