@@ -19,7 +19,7 @@ app.get('/',function(req,res){
 // example of sending the result of an ajax call
 app.get('/load-vars',function(req,res){
 	// these variables passed via ajax calls
-	res.send({one:2,two:3});
+	res.send({one:2,two:3,three:4});
 });
 
 

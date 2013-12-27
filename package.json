@@ -1,5 +1,5 @@
 {
-  "name": "lean-mean web-stack",
+  "name": "lean-mean_web-stack",
   "version": "0.0.1",
   "private": false,
   "author": "Dom Parise",
@@ -10,7 +10,7 @@
     "express": "latest",
     "jade": "latest",
     "mongoose": "latest"
-  },  
+  },
   "devDependencies": {
     "grunt": "latest",
     "grunt-contrib-jshint": "latest",
