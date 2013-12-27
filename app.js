@@ -22,21 +22,21 @@ app.get('/load-vars',function(req,res){
 	res.send({one:2,two:3,three:4});
 });
 
-
 // example of async database interaction
 (function(){
 	db.newModel('aModel',{one:String,two:Number},function(){
-		db.insert('aModel',{one:"sup",two:2},function(){
-			db.update('aModel',{two:2},{one:"yolo"},function(){
-				db.select('aModel',{two:2},function(data){
-					console.log(data);		
+		db.delete('aModel',{two:2},function(){
+			db.insert('aModel',{one:"sup",two:2},function(){
+				db.update('aModel',{two:2},{one:"yolo"},function(){
+					db.select('aModel',{two:2},function(data){
+						console.log(data);		
+					});
 				});
 			});
 		});
 	});
 })();
 
-
-app.listen(8080,function(){
-  console.log('Ready to go on port 8080');
+app.listen(3000,function(){
+  console.log('Ready to go on port 3000');
 });

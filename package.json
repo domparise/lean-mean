@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": false,
   "author": "Dom Parise",
+  "repository" :{ 
+    "type" : "git",
+    "url" : "https://github.com/dparise/lean-mean.git"
+  },
   "scripts": {
     "start": "node app.js"
   },
