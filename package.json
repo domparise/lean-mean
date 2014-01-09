@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": false,
   "author": "Dom Parise",
-  "repository" :{ 
-    "type" : "git",
-    "url" : "https://github.com/dparise/lean-mean.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dparise/lean-mean.git"
   },
   "scripts": {
     "start": "node app.js"
@@ -13,13 +13,16 @@
   "dependencies": {
     "express": "latest",
     "jade": "latest",
-    "mongoose": "latest"
+    "mongodb": "latest"
   },
   "devDependencies": {
-    "grunt": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-concurrent": "latest",
-    "grunt-nodemon": "latest"
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-concurrent": "~0.4.2",
+    "grunt-nodemon": "~0.1.2",
+    "jade": "~1.0.0",
+    "express": "~3.4.7",
+    "mongoose": "~3.8.3"
   }
 }

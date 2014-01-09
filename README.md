@@ -1,12 +1,12 @@
 LEAN MEAN WEB STACK  
 ===================  
-Bare-bones platform designed for rapid, diy development without sacraficing full MEAN functionality.  
+Bare-bones platform designed for rapid development without sacraficing full MEAN functionality.  
   
   
 COMPONENTS  
 ==========
-All functional back-end code can exists in app.js. Add a route with app.get(route,action()). 
-Within app.js, create a database model with db.newModel then interface with SQL-like syntax with db.insert, db.update, db.select, and db.delete;  
+All functional back-end code can exists in app.js. Add an http route with app.get(route,action()). 
+Within app.js, interface directly with mongodb within the db.init() callback;  
   
 Pages to dynamically rendered server-side are generated with .jade files in ./views.  
 
@@ -19,9 +19,3 @@ To install:
 npm install --save-dev  
 To run:  
 grunt  
-  
-  
-TODO  
-====  
--add method generation to db.newModel()  
--comment  

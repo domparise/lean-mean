@@ -1,7 +1,9 @@
+// modules used by our app
 var express = require('express'),
 	db = require('./db.js');
 var app = express();
 
+// express boilerplate, initializes environment and middleware
 app.set('views','views');
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
@@ -22,20 +24,19 @@ app.get('/load-vars',function(req,res){
 	res.send({one:2,two:3,three:4});
 });
 
-// example of async database interaction
-(function(){
-	db.newModel('aModel',{one:String,two:Number},function(){
-		db.delete('aModel',{two:2},function(){
-			db.insert('aModel',{one:"sup",two:2},function(){
-				db.update('aModel',{two:2},{one:"yolo"},function(){
-					db.select('aModel',{two:2},function(data){
-						console.log(data);		
-					});
-				});
+// example of database interaction
+db.init(function(objs){
+
+	objs.insert( {a:1} ,function(){	
+		objs.find( {a:1} ).toArray(function (err,result) {
+			console.log(result);
+			objs.remove( {a:1} ,function (err,result) {
+				console.log('removed '+result+' object');
 			});
 		});
 	});
-})();
+
+});
 
 app.listen(3000,function(){
   console.log('Ready to go on port 3000');
