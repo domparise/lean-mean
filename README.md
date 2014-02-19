@@ -16,7 +16,7 @@ Angular html view controllers currently reside within ./public/js.
 USAGE  
 =====  
 To install:  
-npm install
+npm install  
 To run:
 node app.js
   
