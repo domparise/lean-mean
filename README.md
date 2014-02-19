@@ -17,12 +17,14 @@ USAGE
 =====  
 To install:  
 npm install  
-To run:
-node app.js
+To run:  
+node app.js  
   
   
 GRUNT  
 =====  
 With grunt-cli installed, you can take advantage of automatic jslinting and server resets when you make changes to files with:
-npm install --save-dev
+Install with:  
+npm install --save-dev  
+Run with:  
 grunt  
