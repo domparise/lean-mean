@@ -16,6 +16,13 @@ Angular html view controllers currently reside within ./public/js.
 USAGE  
 =====  
 To install:  
-npm install --save-dev  
-To run:  
+npm install
+To run:
+node app.js
+  
+  
+GRUNT  
+=====  
+With grunt-cli installed, you can take advantage of automatic jslinting and server resets when you make changes to files with:
+npm install --save-dev
 grunt  
